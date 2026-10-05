@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Lumid Studio | Gym Website Collection</title>
+
+  <meta
+    name="description"
+    content="A curated collection of premium gym website concepts designed by Lumid Studio."
+  />
+
+  <style>
+    :root {
+      --bg: #f5f5f3;
+      --surface: #ffffff;
+      --text: #111111;
+      --muted: #777777;
+      --border: #e7e7e4;
+      --black: #111111;
+      --radius: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .nav {
+      width: 100%;
+      padding: 24px 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.7px;
+    }
+
+    .logo span {
+      font-weight: 400;
+      color: #777;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      color: #555;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: #111;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 720px;
+      padding: 160px 5vw 90px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #666;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      background: #111;
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      font-size: clamp(64px, 9vw, 132px);
+      line-height: 0.88;
+      letter-spacing: -7px;
+      font-weight: 700;
+    }
+
+    .hero h1 span {
+      color: #999;
+      font-weight: 400;
+    }
+
+    .hero-bottom {
+      margin-top: 65px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+    }
+
+    .hero-description {
+      max-width: 470px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #666;
+    }
+
+    .hero-count {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .hero-count strong {
+      display: block;
+      font-size: 52px;
+      letter-spacing: -3px;
+    }
+
+    .hero-count span {
+      font-size: 12px;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+    }
+
+    /* Decorative circle */
+
+    .hero-circle {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      border: 1px solid #dededb;
+      right: -180px;
+      top: 180px;
+      pointer-events: none;
+    }
+
+    .hero-circle::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: 1px solid #dededb;
+      top: 80px;
+      left: 80px;
+    }
+
+    /* =========================
+       COLLECTION
+    ========================= */
+
+    .collection {
+      padding: 40px 5vw 120px;
+    }
+
+    .collection-inner {
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: 22px;
+      letter-spacing: -0.8px;
+    }
+
+    .section-heading p {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-preview {
+      height: 420px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 30px;
+    }
+
+    /* Individual visual identities */
+
+    .aresfit {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.06),
+          transparent
+        ),
+        #151515;
+      color: white;
+    }
+
+    .fitflex {
+      background:
+        radial-gradient(
+          circle at 75% 20%,
+          #d7ff35 0,
+          transparent 25%
+        ),
+        #171717;
+      color: white;
+    }
+
+    .fitova {
+      background:
+        linear-gradient(
+          135deg,
+          #e9e5dd,
+          #bdb8ad
+        );
+      color: #111;
+    }
+
+    .heavy {
+      background:
+        linear-gradient(
+          145deg,
+          #1b1b1b,
+          #050505
+        );
+      color: white;
+    }
+
+    .preview-number {
+      position: absolute;
+      top: 25px;
+      left: 28px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      opacity: 0.6;
+    }
+
+    .preview-word {
+      font-size: clamp(54px, 7vw, 92px);
+      line-height: 0.8;
+      letter-spacing: -5px;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+    }
+
+    .preview-word span {
+      font-weight: 300;
+    }
+
+    .preview-shape {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.18);
+      right: -70px;
+      top: -70px;
+    }
+
+    .fitova .preview-shape {
+      border-color: rgba(0,0,0,0.12);
+    }
+
+    .card-info {
+      padding: 25px 28px 28px;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .card-title {
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: -1px;
+    }
+
+    .card-number {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .card-description {
+      margin-top: 9px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #777;
+      max-width: 400px;
+    }
+
+    .view-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 24px;
+      padding: 12px 18px;
+      background: #111;
+      color: white;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .view-button:hover {
+      background: #333;
+      transform: translateX(3px);
+    }
+
+    /* =========================
+       BOTTOM CTA
+    ========================= */
+
+    .cta {
+      padding: 40px 5vw 120px;
+    }
+
+    .cta-inner {
+      max-width: 1250px;
+      margin: 0 auto;
+      background: #111;
+      color: white;
+      border-radius: 30px;
+      padding: 75px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 50px;
+    }
+
+    .cta h2 {
+      max-width: 700px;
+      font-size: clamp(42px, 5vw, 76px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+    }
+
+    .cta p {
+      margin-top: 22px;
+      max-width: 500px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #aaa;
+    }
+
+    .cta-button {
+      flex-shrink: 0;
+      padding: 15px 22px;
+      background: white;
+      color: #111;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: transform 0.25s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 30px 5vw 45px;
+    }
+
+    .footer-inner {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        min-height: 650px;
+        padding-top: 130px;
+      }
+
+      .hero h1 {
+        letter-spacing: -4px;
+      }
+
+      .hero-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-count {
+        text-align: left;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-inner {
+        padding: 50px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .nav {
+        padding: 20px;
+      }
+
+      .hero {
+        padding: 120px 20px 70px;
+      }
+
+      .hero h1 {
+        font-size: 64px;
+        letter-spacing: -4px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .collection,
+      .cta {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .card-preview {
+        height: 320px;
+      }
+
+      .preview-word {
+        font-size: 60px;
+      }
+
+      .cta-inner {
+        padding: 40px 30px;
+        border-radius: 22px;
+      }
+
+      .cta h2 {
+        font-size: 46px;
+        letter-spacing: -2.5px;
+      }
+
+      footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav class="nav">
+
+    <a href="/" class="logo">
+      LUMID <span>STUDIO</span>
+    </a>
+
+    <a
+      href="https://lumid.in"
+      class="nav-link"
+      target="_blank"
+      rel="noopener"
+    >
+      lumid.in ↗
+    </a>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <header class="hero">
+
+    <div class="hero-circle"></div>
+
+    <div class="hero-inner">
+
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Lumid Studio / Gym Collection
+      </div>
+
+      <h1>
+        Websites built<br />
+        <span>to move.</span>
+      </h1>
+
+      <div class="hero-bottom">
+
+        <p class="hero-description">
+          A curated collection of premium website directions
+          created for modern gyms, fitness studios and performance brands.
+        </p>
+
+        <div class="hero-count">
+          <strong>04</strong>
+          <span>Design concepts</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       WEBSITE COLLECTION
+  ========================= -->
+
+  <main class="collection">
+
+    <div class="collection-inner">
+
+      <div class="section-heading">
+
+        <h2>Selected Concepts</h2>
+
+        <p>
+          Choose a direction
+        </p>
+
+      </div>
+
+
+      <div class="grid">
+
+
+        <!-- =========================
+             ARESFIT
+        ========================= -->
+
+        <article class="card">
+
+          <div class="card-preview aresfit">
+
+            <span class="preview-number">
+              01 / 04
+            </span>
+
+            <div class="preview-shape"></div>
+
+            <div class="preview-word">
+              ARES<span>FIT</span>
+            </div>
+
+          </div>
+
+          <div class="card-info">
+
+            <div class="card-top">
+
+              <div>
+                <h3 class="card-title">
+                  AresFit
+                </h3>
+
+                <p class="card-description">
+                  A bold performance-focused direction
+                  designed for strength and serious training.
+                </p>
+              </div>
+
+              <span class="card-number">
+                01
+              </span>
+
+            </div>
+
+            <a
+              href="./aresfit-lumid/"
+              class="view-button"
+            >
+              View website&nbsp; ↗
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- =========================
+             FITFLEX
+        ========================= -->
+
+        <article class="card">
+
+          <div class="card-preview fitflex">
+
+            <span class="preview-number">
+              02 / 04
+            </span>
+
+            <div class="preview-shape"></div>
+
+            <div class="preview-word">
+              FIT<span>FLEX</span>
+            </div>
+
+          </div>
+
+          <div class="card-info">
+
+            <div class="card-top">
+
+              <div>
+                <h3 class="card-title">
+                  FitLex
+                </h3>
+
+                <p class="card-description">
+                  An energetic modern concept built
+                  around movement, community and results.
+                </p>
+              </div>
+
+              <span class="card-number">
+                02
+              </span>
+
+            </div>
+
+            <a
+              href="./fitlex/"
+              class="view-button"
+            >
+              View website&nbsp; ↗
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- =========================
+             FITOVA
+        ========================= -->
+
+        <article class="card">
+
+          <div class="card-preview fitova">
+
+            <span class="preview-number">
+              03 / 04
+            </span>
+
+            <div class="preview-shape"></div>
+
+            <div class="preview-word">
+              FIT<span>OVA</span>
+            </div>
+
+          </div>
+
+          <div class="card-info">
+
+            <div class="card-top">
+
+              <div>
+                <h3 class="card-title">
+                  Fitova
+                </h3>
+
+                <p class="card-description">
+                  A refined fitness experience with
+                  a clean, premium and contemporary aesthetic.
+                </p>
+              </div>
+
+              <span class="card-number">
+                03
+              </span>
+
+            </div>
+
+            <a
+              href="./fitova-lumid/"
+              class="view-button"
+            >
+              View website&nbsp; ↗
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- =========================
+             HEAVYSET
+        ========================= -->
+
+        <article class="card">
+
+          <div class="card-preview heavy">
+
+            <span class="preview-number">
+              04 / 04
+            </span>
+
+            <div class="preview-shape"></div>
+
+            <div class="preview-word">
+              HEAVY<span>SET</span>
+            </div>
+
+          </div>
+
+          <div class="card-info">
+
+            <div class="card-top">
+
+              <div>
+                <h3 class="card-title">
+                  Heavyset
+                </h3>
+
+                <p class="card-description">
+                  A raw, high-impact direction designed
+                  for bodybuilding and hardcore fitness brands.
+                </p>
+              </div>
+
+              <span class="card-number">
+                04
+              </span>
+
+            </div>
+
+            <a
+              href="./heavyset-lumid/"
+              class="view-button"
+            >
+              View website&nbsp; ↗
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================
+       CTA
+  ========================= -->
+
+  <section class="cta">
+
+    <div class="cta-inner">
+
+      <div>
+
+        <h2>
+          Your gym deserves
+          more than a template.
+        </h2>
+
+        <p>
+          We design and build premium digital experiences
+          for businesses that want to stand out.
+        </p>
+
+      </div>
+
+      <a
+        href="https://lumid.in"
+        target="_blank"
+        rel="noopener"
+        class="cta-button"
+      >
+        Work with Lumid ↗
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <span>
+        © 2026 Lumid Studio
+      </span>
+
+      <span>
+        Digital experiences for ambitious brands.
+      </span>
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
